@@ -1,0 +1,2 @@
+nav{display:flex;gap:1rem;justify-content:center}nav li{list-style:none}nav li a{text-decoration:none}.work-exp__obj{padding:1rem}.work-exp__obj:not(:last-of-type){margin-bottom:1rem}@layer main{*{font-family:Chakra Petch,sans-serif;font-family:Poppins,sans-serif;margin:0;padding:0}#root{display:flex;flex-flow:column nowrap;height:100vh;overflow:auto;position:relative}}@layer wireframe{nav{border:3px dashed red;position:-webkit-sticky;position:sticky;top:0}.outlet{border:3px dashed blue;flex:1 1 auto;overflow:auto}}
+/*# sourceMappingURL=main.0cedd06f.css.map*/
