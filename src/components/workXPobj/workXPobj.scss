@@ -1,0 +1,8 @@
+.work-exp {
+    &__obj {
+        padding: 1rem;
+        &:not(:last-of-type) {
+            margin-bottom: 1rem;
+        }
+    }
+}
