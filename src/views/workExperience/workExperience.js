@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { WORK_XP } from "../../data/queries";
-import { fetchData } from "../../data/fetchData";
+import React from "react";
 import { WorkExperienceObj } from "../../components/workXPobj/workXPobj";
+import { DataContext } from "../../context/context";
 
 export const WorkExperience = (props) => {
-    const [workExp, setWorkExp] = useState(null);
-
-    useEffect(() => {
-        const fetchWorkExp = async () => {
-            const { wXpModels } = await fetchData(WORK_XP.query, WORK_XP.key);
-
-            setWorkExp(wXpModels);
-        };
-
-        fetchWorkExp();
-    }, []);
-
+    const context = DataContext;
     let loading = <>Loading...</>
-    return workExp == null
-        ? loading
-        : workExp.map((ex, i) => <WorkExperienceObj key={i} {...ex}/>);
+    
+    return (
+        <context.Consumer>
+            {({ wXpModels }) => {
+                if (!wXpModels?.length) {
+                    return loading;
+                }
+
+                return wXpModels.map((ex, i) => (
+                    <WorkExperienceObj key={i} {...ex} />
+                ));
+            }}
+        </context.Consumer>
+    );
 };

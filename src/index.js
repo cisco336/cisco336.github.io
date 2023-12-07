@@ -12,7 +12,6 @@ import {
     WorkExperience,
 } from "./views/";
 import "./index.scss";
-import { getAppContext } from "./data/appContext";
 
 const router = createBrowserRouter([
     {
@@ -43,15 +42,9 @@ const router = createBrowserRouter([
 const data = null;
 const Context = createContext();
 
-getAppContext().then((res) => {
-    console.log(res);
-    data = res;
-});
-
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <RouterProvider router={router} />
-        <Context.Provider value={data} />
     </React.StrictMode>
 );
 
