@@ -2,17 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./nav.scss";
 import { DataContext } from "../../context/context";
+import { Loading } from "../loading/loading";
 
 export const Nav = () => {
     let context = DataContext
-
-    let loading = <div>Loading...</div>;
     
     return (
         <context.Consumer>
             {({ navModels }) => {
                 if (!navModels.length) {
-                    return loading;
+                    return <Loading />;
                 }
                 return (
                     <nav>
