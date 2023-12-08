@@ -1,4 +1,4 @@
-import React, {useState, useLayoutEffect, useEffect} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./nav.scss";
 import { DataContext } from "../../context/context";

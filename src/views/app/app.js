@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Nav } from "../../components";
 import { Outlet } from "react-router-dom";
 import { getAppContext } from "../../context/context";
@@ -10,8 +10,9 @@ export const App = () => {
 
     useEffect(() => {
         const contextValue = async () => {
-            const { navModels, wXpModels } = await getAppContext();
-            setContext({ navModels, wXpModels });
+            const { navModels, wXpModels, homeEntryModels } =
+                await getAppContext();
+            setContext({ navModels, wXpModels, homeEntryModels });
         };
         contextValue();
     }, []);

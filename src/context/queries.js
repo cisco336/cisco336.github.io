@@ -61,5 +61,11 @@ export const ALL = {
                 html
             }
         }
+        homeEntryModels {
+            title
+            content {
+                html
+            }
+        }
     }`,
 };
