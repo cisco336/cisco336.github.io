@@ -1,0 +1,16 @@
+@import "../../sass/index.scss";
+
+.burger-menu {
+    &__wrapper {
+        position: relative;
+        overflow: visible;
+
+        @include for-medium-screen {
+            display: none;
+        }
+    }
+
+    &__menu {
+        position: absolute;
+    }
+}
