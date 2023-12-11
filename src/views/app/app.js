@@ -7,15 +7,16 @@ import { DataContext, defaultContext } from "../../context/context";
 export const App = () => {
 
     const [context, setContext] = useState({ ...defaultContext });
+    const [locale, setLocale] = useState("en");
 
     useEffect(() => {
         const contextValue = async () => {
             const { navModels, wXpModels, homeEntryModels } =
                 await getAppContext();
-            setContext({ navModels, wXpModels, homeEntryModels });
+            setContext({ locale: locale, setLocale: setLocale, navModels, wXpModels, homeEntryModels });
         };
         contextValue();
-    }, []);
+    }, [locale]);
 
     return (
         <DataContext.Provider value={context}>
