@@ -10,6 +10,7 @@ import {
     App,
     ErrorPage,
     WorkExperience,
+    Skills
 } from "./views/";
 import "./index.scss";
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: "/projects",
                 element: <Projects />,
+            },
+            {
+                path: "/skills",
+                element: <Skills />,
             },
             {
                 path: "/contact",

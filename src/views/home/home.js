@@ -10,8 +10,13 @@ export function Home() {
         ) : (
             homeEntryModels?.map((entry, index) => (
                 <div key={index}>
-                    <h3>{entry.title}</h3>
-                    <div>{parser(entry.content.html)}</div>
+                    {entry.commonData.localizations.map(loc => 
+                        <>
+                            <h2>{loc.locale}</h2>
+                            <h3>{loc.name}</h3>
+                            <div>{parser(loc.description.html)}</div>
+                        </>    
+                    )}
                 </div>
             ))
         );

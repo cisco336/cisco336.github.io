@@ -43,6 +43,18 @@ export const ALL = {
             label
             link
         }
+        homeEntryModels {
+            id
+            commonData {
+            localizations(includeCurrent: true) {
+                name
+                locale
+                description {
+                html
+                }
+            }
+            }
+        }
         wXpModels {
             id
             organiztion
@@ -57,12 +69,6 @@ export const ALL = {
                 width
                 height
             }
-            content {
-                html
-            }
-        }
-        homeEntryModels {
-            title
             content {
                 html
             }
