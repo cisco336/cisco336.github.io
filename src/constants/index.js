@@ -41,3 +41,26 @@ export const CONTACT_QUERY = `{
     name
   }
 }`;
+
+export const WORK_EXP_QUERY = `{
+  wXpModels {
+    localizations(includeCurrent: true) {
+      locale
+      currentJob
+      companyLogo {
+        fileName
+        height
+        url
+        width
+      }
+      organiztion
+      position
+      startDate
+      endDate
+      content {
+        html
+      }
+      updatedAt
+    }
+  }
+}`;
