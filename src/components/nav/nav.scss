@@ -1,8 +1,9 @@
 @import "../../sass/index.scss";
 
 nav {
-
+    padding: 12px;
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
+    border-bottom: 1px solid rgba(black, .2);
 }

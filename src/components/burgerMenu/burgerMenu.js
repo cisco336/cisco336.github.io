@@ -23,16 +23,23 @@ export const BurgerMenu = ({ navModels }) => {
     return (
         <div className="burger-menu__wrapper">
             <Button className="burger-menu__trigger" callBack={handleClick}>
-                Burger
+                <span></span>
+                <span></span>
+                <span></span>
             </Button>
             {showMenu && (
                 <div className="burger-menu__menu">
                     {renderLinks(language).map((item, index) => (
                         <Link to={item.link} key={index}>
-                            <Button>{item.label}</Button>
+                            <Button type="text">{item.label}</Button>
                         </Link>
                     ))}
-                    <Button callBack={() => setLanguage(language == "es" ? "en" : "es")}>
+                    <Button
+                        callBack={() =>
+                            setLanguage(language == "es" ? "en" : "es")
+                        }
+                        type="text"
+                    >
                         Change language
                     </Button>
                 </div>

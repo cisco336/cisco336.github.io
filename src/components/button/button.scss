@@ -1,0 +1,23 @@
+@import "../../sass/partials/variables";
+@import "../../sass/partials/extends";
+
+.btn {
+    @extend %smooth;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    
+    &-primary {
+        background: $primaryGradient;
+        color: white;
+        &:hover {
+            background: $primaryGradientHover;
+        }
+    }
+
+    &-text {
+        background: none;
+    }
+}
