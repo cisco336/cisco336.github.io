@@ -27,3 +27,17 @@ export const HOME_QUERY = `{
     }
   }
 }`;
+
+export const CONTACT_QUERY = `{
+  contactMeModels {
+    icon
+    img {
+      fileName
+      height
+      width
+      url
+    }
+    link
+    name
+  }
+}`;

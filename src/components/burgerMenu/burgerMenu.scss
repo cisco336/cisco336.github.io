@@ -8,5 +8,16 @@
 
     &__menu {
         position: absolute;
+        top: 100%;
+        margin-top: 10px;
+        right: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: .5rem;
+        align-items: stretch;
+
+        .btn {
+            width: 100%;
+        }
     }
 }

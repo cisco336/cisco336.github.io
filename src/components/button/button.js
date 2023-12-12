@@ -1,5 +1,5 @@
 import React from "react";
 
-export const Button = ({ title = "Button", type = "primary" }) => {
-  return <button className={`btn btn-${type}`}>{title}</button>;
+export const Button = ({ type = "primary", callBack = () => {}, children }) => {
+  return <button onClick={callBack} className={`btn btn-${type}`}>{children}</button>;
 };

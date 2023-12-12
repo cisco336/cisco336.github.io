@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./burgerMenu.scss";
 import { languageContext } from "../../context/context";
+import { Button } from "../button/button";
 
 export const BurgerMenu = ({ navModels }) => {
     const [showMenu, setShowMenu] = useState(false);
@@ -21,19 +22,19 @@ export const BurgerMenu = ({ navModels }) => {
     
     return (
         <div className="burger-menu__wrapper">
-            <button className="burger-menu__trigger" onClick={handleClick}>
+            <Button className="burger-menu__trigger" callBack={handleClick}>
                 Burger
-            </button>
+            </Button>
             {showMenu && (
                 <div className="burger-menu__menu">
                     {renderLinks(language).map((item, index) => (
                         <Link to={item.link} key={index}>
-                            <button>{item.label}</button>
+                            <Button>{item.label}</Button>
                         </Link>
                     ))}
-                    <button onClick={() => setLanguage(language == "es" ? "en" : "es")}>
+                    <Button callBack={() => setLanguage(language == "es" ? "en" : "es")}>
                         Change language
-                    </button>
+                    </Button>
                 </div>
             )}
         </div>
