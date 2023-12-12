@@ -14,3 +14,16 @@ export const NAV_QUERY = `{
     }
   }
 }`;
+
+export const HOME_QUERY = `{
+  homeEntryModels {
+    localizations(includeCurrent: true) {
+      title
+      updatedAt
+      locale
+      description {
+        html
+      }
+    }
+  }
+}`;
