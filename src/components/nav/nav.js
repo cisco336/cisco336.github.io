@@ -1,21 +1,19 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import "./nav.scss";
-import { DataContext } from "../../context/context";
 import { BurgerMenu } from "../burgerMenu/burgerMenu";
+import { NAV_QUERY, fetchData } from "../../constants";
 
 export const Nav = () => {
-    const { locale, setLocale } = useContext(DataContext);
-    
+    const [navModels, setNavModels] = useState([]);
+
+    useEffect(() => {
+        fetchData(NAV_QUERY).then((res) => {
+            setNavModels(res.navModels);
+        });
+    }, []);
     return (
         <nav>
-            <button
-                onClick={() => {
-                    setLocale(locale == "es" ? "en" : "es");
-                }}
-            >
-                Change locale: {locale}
-            </button>
-            <BurgerMenu />
+            <BurgerMenu navModels={navModels}/>
         </nav>
     );
 };

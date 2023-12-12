@@ -1,22 +1,20 @@
 import React from "react";
 import { WorkExperienceObj } from "../../components/workXPobj/workXPobj";
-import { DataContext } from "../../context/context";
 import { Loading } from "../../components";
 
 export const WorkExperience = (props) => {
-    const context = DataContext;
     
     return (
-        <context.Consumer>
-            {({ wXpModels }) => {
-                if (!wXpModels?.length) {
-                    return <Loading />;
-                }
+        // <context.Consumer>
+        //     {({ wXpModels }) => {
+        //         if (!wXpModels?.length) {
+        //             return <Loading />;
+        //         }
 
-                return wXpModels.map((ex, i) => (
-                    <WorkExperienceObj key={i} {...ex} />
-                ));
-            }}
-        </context.Consumer>
-    );
+        //         return wXpModels.map((ex, i) => (
+        //             <WorkExperienceObj key={i} {...ex} />
+        //         ));
+        //     }}
+        // </context.Consumer>
+    <div></div>);
 };
