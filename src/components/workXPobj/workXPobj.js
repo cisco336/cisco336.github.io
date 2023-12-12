@@ -1,6 +1,7 @@
 import React from "react";
 import parser from "html-react-parser";
 import "./workXPobj.scss";
+import { Loading } from "../loading/loading";
 
 export const WorkExperienceObj = ({
     locale,
@@ -13,17 +14,7 @@ export const WorkExperienceObj = ({
     content,
     updatedAt
 }) => {
-    console.log({
-        locale,
-        currentJob,
-        companyLogo,
-        organiztion,
-        position,
-        startDate,
-        endDate,
-        content,
-        updatedAt,
-    });
+    
     return (
         <div className="work-exp__obj">
             <div className="work-exp__header">
