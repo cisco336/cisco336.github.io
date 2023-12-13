@@ -26,13 +26,16 @@ export const BurgerMenu = ({ navModels }) => {
     
     return (
         <div className="burger-menu__wrapper">
-            <Button extraClass={`burger-menu__trigger ${burgerState}`} callBack={handleClick}>
+            <Button
+                extraClass={`burger-menu__trigger ${burgerState}`}
+                callBack={handleClick}
+            >
                 <span></span>
                 <span></span>
                 <span></span>
             </Button>
-            {showMenu && (
-                <div className="burger-menu__menu">
+            {(
+                <div className={`burger-menu__menu ${burgerState}`}>
                     {renderLinks(language).map((item, index) => (
                         <Link to={item.link} key={index}>
                             <Button type="text">{item.label}</Button>
