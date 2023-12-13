@@ -6,9 +6,13 @@ import { Button } from "../button/button";
 
 export const BurgerMenu = ({ navModels }) => {
     const [showMenu, setShowMenu] = useState(false);
+    const [burgerState, setBurgerState] = useState("");
+
     const handleClick = () => {
         setShowMenu(!showMenu);
+        setBurgerState(burgerState == "" ? "active" : "");
     };
+
     const renderLinks = (language) => {
         return navModels.length ? 
             navModels.map(model => model.localizations.find(local => local.locale == language)) 
@@ -22,7 +26,7 @@ export const BurgerMenu = ({ navModels }) => {
     
     return (
         <div className="burger-menu__wrapper">
-            <Button className="burger-menu__trigger" callBack={handleClick}>
+            <Button extraClass={`burger-menu__trigger ${burgerState}`} callBack={handleClick}>
                 <span></span>
                 <span></span>
                 <span></span>

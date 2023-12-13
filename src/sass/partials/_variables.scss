@@ -7,8 +7,10 @@ $wLarge: 1024px;
 $wXLarge: 1440px;
 
 // Colors
-$primaryGradient: linear-gradient(90deg, #ff0A6C 10%, #2D27FF 90%);
-$primaryGradientHover: linear-gradient(90deg, #ff0A6C 40%, #2D27FF 90%);
+$primaryBlue: #2D27FF;
+$primaryAccent: #ff0A6C;
+$primaryGradient: linear-gradient(297deg, $primaryAccent 0%, $primaryBlue 75%);
+$primaryGradientHover: linear-gradient(297deg, $primaryAccent 10%, $primaryBlue 70%);
 
 // Shadows
 $primaryShadow: #808080 0 10px 40px -10px;

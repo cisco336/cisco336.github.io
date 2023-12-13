@@ -25,4 +25,60 @@
             border-radius: 0;
         }
     }
+
+    &__trigger {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 5px;
+        justify-content: center;
+
+        & span {
+            @extend %smooth; 
+            background: white;
+            width: 100%;
+            height: 3px;
+            border-radius: 4px;
+            transform-origin: 0%;
+        }
+
+        &:hover {
+            span {
+                &:nth-child(1) {
+                    width: 50%;
+                    transform-origin: 100%;
+                    transform: translate(1px, 20px) rotate(45deg);
+                }
+                &:nth-child(2) {
+                    transform-origin: 50%;
+                    transform: rotate(90deg);
+                }
+                &:nth-child(3) {
+                    width: 50%;
+                    transform: translate(11px, 4px) rotate(-45deg);
+                }
+            }
+        }
+
+        &.active {
+            span {
+                    &:nth-child(1) {
+                        width: 50%;
+                        transform-origin: 100%;
+                        transform: translate(8px, -1px) rotate(-45deg);
+                    }
+            
+                    &:nth-child(2) {
+                        transform-origin: 50%;
+                        transform: rotate(45deg);
+                    }
+            
+                    &:nth-child(3) {
+                        width: 50%;
+                        transform: translate(3px, 0px) rotate(-45deg);
+                    }
+                }
+        }
+    }
 }
