@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./nav.scss";
 import { BurgerMenu } from "../burgerMenu/burgerMenu";
 import { NAV_QUERY, fetchData } from "../../constants";
+import { ProfilePicture } from "../profilePicture/profilePicture";
 
 export const Nav = () => {
     const [navModels, setNavModels] = useState([]);
@@ -13,6 +14,7 @@ export const Nav = () => {
     }, []);
     return (
         <nav>
+            <ProfilePicture />
             <BurgerMenu navModels={navModels}/>
         </nav>
     );

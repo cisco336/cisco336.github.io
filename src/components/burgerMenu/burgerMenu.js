@@ -34,23 +34,29 @@ export const BurgerMenu = ({ navModels }) => {
                 <span></span>
                 <span></span>
             </Button>
-            {(
+            {
                 <div className={`burger-menu__menu ${burgerState}`}>
                     {renderLinks(language).map((item, index) => (
                         <Link to={item.link} key={index}>
-                            <Button type="text">{item.label}</Button>
+                            <Button
+                                type="primary"
+                                extraClass="tile"
+                            >
+                                {item.label}
+                            </Button>
                         </Link>
                     ))}
                     <Button
                         callBack={() =>
                             setLanguage(language == "es" ? "en" : "es")
                         }
-                        type="text"
+                        type="secondary"
+                        extraClass="tile"
                     >
                         Change language
                     </Button>
                 </div>
-            )}
+            }
         </div>
     );
 };

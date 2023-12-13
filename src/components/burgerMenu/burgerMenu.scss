@@ -10,16 +10,14 @@
     &__menu {
         @extend %smooth;
         position: fixed;
-        top: 74px;
+        top: 70px;
         right: 0;
         width: 0;
-        height: 100%;
+        height: calc(100% - 70px);
         z-index: 1;
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: stretch;
+        display: grid;
+        grid-template-columns: 1fr;
         background-color: white;
-        border-radius: 4px;
         box-shadow: $primaryShadow;
 
         &.active {
@@ -27,13 +25,26 @@
         }
 
         a {
-            border-bottom: 1px solid rgba(#555,.2)
+            display: flex;
+            text-decoration: none;
         }
 
         .btn {
             width: 100%;
-            text-align: left;
+            text-align: center;
             border-radius: 0;
+        }
+
+        .tile {
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            &:hover {
+                color: white;
+                background-clip: none;
+                -webkit-background-clip: none;
+            }
         }
     }
 
