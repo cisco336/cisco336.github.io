@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./nav.scss";
-import { BurgerMenu } from "../burgerMenu/burgerMenu";
+import { BurgerMenu, Button, ProfilePicture } from "../";
 import { NAV_QUERY, fetchData } from "../../constants";
-import { ProfilePicture } from "../profilePicture/profilePicture";
 
 export const Nav = () => {
     const [navModels, setNavModels] = useState([]);
@@ -15,7 +14,14 @@ export const Nav = () => {
     return (
         <nav>
             <ProfilePicture />
-            <BurgerMenu navModels={navModels}/>
+            <div className="options">
+                <Button type="btn btn-icon-primary btn-icon-primary-outline">
+                    <div>
+                        <i className="icon icon-translate"></i>
+                    </div>
+                </Button>
+                <BurgerMenu navModels={navModels} />
+            </div>
         </nav>
     );
 };
