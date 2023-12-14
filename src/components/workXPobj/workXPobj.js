@@ -28,9 +28,7 @@ export const WorkExperienceObj = ({
                 <h3>{organiztion}</h3>
                 <img src={companyLogo.url} title={companyLogo.fileName} />
             </Button>
-            <div
-                className={`work-exp__content ${accordionState ? "open" : ""}`}
-            >
+            <div className={`work-exp__content ${accordionState ? "open" : ""}`}>
                 <div>
                     {parser(content.html)}
                     <small>

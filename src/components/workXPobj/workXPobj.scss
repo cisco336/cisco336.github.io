@@ -7,24 +7,21 @@
             margin-bottom: 1rem;
         }
 
-        // display: grid;
-        // grid-template-columns: 1fr;
-        // grid-template-rows: max-content 1fr;
         display: flex;
         flex-direction: column;
         overflow: hidden;
         border: 1px solid rgba(#999, .3);
         border-radius: 16px;
 
-        &.open {
-            // grid-template-rows: max-content auto;
-        }
-
         & small {
             display: block;
             width: 100%;
             margin-top: .5rem;
             font-size: 70%;
+        }
+
+        &:hover {
+            box-shadow: $primaryShadow;
         }
     }
 
@@ -54,6 +51,7 @@
             width: 48px;
             object-fit: cover;
             border-radius: 100%;
+            border: 1px solid rgba(#555, .2);
         }
     }
 
