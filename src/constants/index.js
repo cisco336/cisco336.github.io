@@ -3,6 +3,8 @@ import {gql} from "@apollo/client";
 export const hygraphLink =
     "https://api-us-west-2.hygraph.com/v2/clharpja51mo001t7gejb0ssk/master";
 
+export const hygraphAssetsLink = "https://media.graphassets.com/";
+
 export const NAV_QUERY = gql`query GetNavItems {
     navModels {
     localizations(includeCurrent: true) {

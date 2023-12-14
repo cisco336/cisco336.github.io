@@ -1,8 +1,23 @@
+@import "../../sass/index.scss";
+
 .work-exp {
     &__obj {
-        padding: 1rem 2rem;
+        @extend %smooth;
         &:not(:last-of-type) {
             margin-bottom: 1rem;
+        }
+
+        // display: grid;
+        // grid-template-columns: 1fr;
+        // grid-template-rows: max-content 1fr;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid rgba(#999, .3);
+        border-radius: 16px;
+
+        &.open {
+            // grid-template-rows: max-content auto;
         }
 
         & small {
@@ -10,6 +25,73 @@
             width: 100%;
             margin-top: .5rem;
             font-size: 70%;
+        }
+    }
+
+    &__header {
+        @extend %smooth;
+        height: 64px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        & > * {
+            padding: 0;
+            margin: 0;
+        }
+
+        &.open {
+            border-bottom: 1px solid rgba(#555, .2);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        padding: 0 1rem;
+
+        img {
+            height: 48px;
+            width: 48px;
+            object-fit: cover;
+            border-radius: 100%;
+        }
+    }
+
+    &__content {
+        transition: all .2s ease-out;
+        display: grid;
+        grid-template-rows: 0fr;
+        
+        & > div {
+            @extend %smooth;
+            overflow: hidden;
+            padding-inline: 1rem;
+            opacity: 0;
+        }
+
+        &.open {
+            grid-template-rows: 1fr;
+            & > div {
+                opacity: 1;
+                padding: 1rem;
+            }
+        }
+
+        small {
+            background: $secondaryGradient;
+            padding: 1rem;
+            margin: 1rem -1rem -1rem;
+            color: white;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & i {
+                position: relative;
+                font-size: 2rem;
+                transform: rotate(10deg);
+            }
         }
     }
 }
