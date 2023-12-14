@@ -1,0 +1,14 @@
+@import "../../sass/partials/variables";
+
+.home {
+    &__wrapper {
+        padding: 1rem 2rem;
+
+        p {
+            &:not(:last-of-type) {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+}

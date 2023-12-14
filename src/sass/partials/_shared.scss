@@ -23,3 +23,12 @@ nav {
     flex: 1 1 auto;
     overflow: auto;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bolder;
+    background: $primaryGradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}

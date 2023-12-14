@@ -3,6 +3,7 @@ import { Loading } from "../../components/loading/loading";
 import parser from "html-react-parser";
 import { languageContext } from "../../context/context";
 import { fetchData, HOME_QUERY } from "../../constants";
+import "./home.scss";
 
 export function Home() {
     const {language} = useContext(languageContext);
@@ -29,7 +30,7 @@ export function Home() {
         <languageContext.Consumer>
             {({language}) => (
                 localizedData(language).map((item, index) => (
-                    <div key={index}>
+                    <div className="home__wrapper" key={index}>
                         <h3>{item.title}</h3>
                         <div>{parser(item.description.html)}</div>
                     </div>
