@@ -8,8 +8,19 @@ $wXLarge: 1440px;
 
 // Colors
 $primaryBlue: #2D27FF;
+$secondaryBlue: #0014ff;
 $primaryAccent: #ff0A6C;
-$primaryGradient: linear-gradient(297deg, $primaryAccent 0%, $primaryBlue 75%);
+$warningYellow: #ffe53b;
+$warningOrange: #ff2525;
+$infoGreen: #00ff5b;
+$infoBlue: #00e5ff;
+
+//Gradients
+$secondaryGradient: linear-gradient(297deg, $infoBlue 0%, $secondaryBlue 75%);
+$warningGradient: linear-gradient(297deg, $warningOrange 0%, $warningYellow 75%);
+$primaryGradient: linear-gradient(297deg, $primaryAccent 0%, 
+$primaryBlue 75%);
+$tileGradientPrimary: linear-gradient(-46deg, #ff0A6C -41%, #2D27FF 68%);
 $primaryGradientHover: linear-gradient(297deg, $primaryAccent 10%, $primaryBlue 70%);
 
 // Shadows

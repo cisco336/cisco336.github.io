@@ -11,6 +11,7 @@ export const NAV_QUERY = `{
       link
       label
       locale
+      icon
     }
   }
 }`;

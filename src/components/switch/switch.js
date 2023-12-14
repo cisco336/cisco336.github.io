@@ -8,20 +8,22 @@ export const Switch = (
         lLabel = "",
         type = "primary",
         checked = false,
-        callback = () => {},
+        doubleState = false,
+        callBack = () => {},
     }
 ) => {
     const [state, setState] = useState("");
     const handleClick = () => {
         setState(state == "" ? "checked" : "");
+        callBack();
     }
 
 
     return (
         <div className="switch__wrapper">
             {lLabel !== "" && <label className="switch__label">{lLabel}</label>}
-            <div className={`switch__container ${state}`} onClick={handleClick}>
-                <Button callBack={callback} extraClass={`switch__button ${state}`} />
+            <div className={`switch__container ${doubleState ? "double" : ""} ${state}`} onClick={handleClick}>
+                <Button extraClass={`switch__button ${state}`} />
             </div>
             {rLabel !== "" && <label className="switch__label">{rLabel}</label>}
         </div>

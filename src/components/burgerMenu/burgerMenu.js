@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./burgerMenu.scss";
 import { languageContext } from "../../context/context";
@@ -19,10 +19,28 @@ export const BurgerMenu = ({ navModels }) => {
             : [];
     }
 
-    const { language, setLanguage } = useContext(languageContext);
+    const { language } = useContext(languageContext);
+
+    const menuRef = useRef(null);
 
     useEffect(() => {
-    }, [language])
+        function handleClickOutside(event) {
+            if (
+                menuRef?.current &&
+                !menuRef?.current.contains(event.target) &&
+                !event.target.classList.contains("burger-menu__trigger")
+            ) {
+                setBurgerState("");
+            }
+        }
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, [menuRef]);
+
+    useEffect(() => {
+    }, [language]);
     
     return (
         <div className="burger-menu__wrapper">
@@ -35,26 +53,22 @@ export const BurgerMenu = ({ navModels }) => {
                 <span></span>
             </Button>
             {
-                <div className={`burger-menu__menu ${burgerState}`}>
+                <div
+                    ref={menuRef}
+                    className={`burger-menu__menu ${burgerState}`}
+                >
                     {renderLinks(language).map((item, index) => (
                         <Link to={item.link} key={index}>
                             <Button
+                                callBack={handleClick}
                                 type="primary"
                                 extraClass="tile"
                             >
-                                {item.label}
+                                <span>{item.label}</span>
+                                <i className={`icon icon-${item.icon}`}></i>
                             </Button>
                         </Link>
                     ))}
-                    <Button
-                        callBack={() =>
-                            setLanguage(language == "es" ? "en" : "es")
-                        }
-                        type="secondary"
-                        extraClass="tile"
-                    >
-                        Change language
-                    </Button>
                 </div>
             }
         </div>
