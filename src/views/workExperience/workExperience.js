@@ -1,26 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { WorkExperienceObj } from "../../components/workXPobj/workXPobj";
 import { Loading } from "../../components";
-import { WORK_EXP_QUERY, fetchData } from "../../constants";
+import { WORK_EXP_QUERY } from "../../constants";
 import { languageContext } from "../../context/context";
+import { useQuery } from "@apollo/client";
 
 export const WorkExperience = (props) => {
-    const [data, setData] = useState(null);
+    const { loading, error, data } = useQuery(WORK_EXP_QUERY);
     const {language} = useContext(languageContext);
 
-    useEffect(() => {
-        fetchData(WORK_EXP_QUERY)
-            .then(response => {
-                setData(response.wXpModels);
-            })
-    }, []);
+    if (loading) {
+        return <Loading />;
+    }
 
-    if (data == null) {
-        return <Loading/>
+    if (error !== undefined) {
+        return <div>Error...</div>;
     }
 
     const renderData = (lang) => {
-        return data.map((d) =>
+        return data.wXpModels.map((d) =>
             d.localizations.find((loc) => loc.locale == lang)
         );
     };

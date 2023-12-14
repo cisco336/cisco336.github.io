@@ -1,18 +1,13 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect } from "react";
 import "./nav.scss";
-import { BurgerMenu, Button, ProfilePicture, Switch } from "../";
-import { NAV_QUERY, fetchData } from "../../constants";
+import { BurgerMenu, ProfilePicture, Switch } from "../";
+import { NAV_QUERY } from "../../constants";
 import { languageContext } from "../../context/context";
+import { useQuery } from "@apollo/client";
+import { Loading } from "../";
 
 export const Nav = () => {
-    const [navModels, setNavModels] = useState([]);
-
-    // To fetch data
-    useEffect(() => {
-        fetchData(NAV_QUERY).then((res) => {
-            setNavModels(res.navModels);
-        });
-    }, []);
+    const { loading, error, data } = useQuery(NAV_QUERY);
 
     // To change language
     const {language, setLanguage} = useContext(languageContext);
@@ -22,12 +17,25 @@ export const Nav = () => {
         setLanguage(language === "en" ? "es" : "en");
     }
 
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error !== undefined) {
+        return <div>Error...</div>;
+    }
+
     return (
         <nav>
             <ProfilePicture />
             <div className="options">
-                <Switch rLabel="ES" lLabel="EN" doubleState={true} callBack={handleLangChange}/>
-                <BurgerMenu navModels={navModels} />
+                <Switch
+                    rLabel="ES"
+                    lLabel="EN"
+                    doubleState={true}
+                    callBack={handleLangChange}
+                />
+                <BurgerMenu navModels={data.navModels} />
             </div>
         </nav>
     );

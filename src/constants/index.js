@@ -1,11 +1,9 @@
-import request from "graphql-request";
+import {gql} from "@apollo/client";
 
-const link =
+export const hygraphLink =
     "https://api-us-west-2.hygraph.com/v2/clharpja51mo001t7gejb0ssk/master";
 
-export const fetchData = (query) => request(link, query);
-
-export const NAV_QUERY = `{
+export const NAV_QUERY = gql`query GetNavItems {
     navModels {
     localizations(includeCurrent: true) {
       link
@@ -16,20 +14,22 @@ export const NAV_QUERY = `{
   }
 }`;
 
-export const HOME_QUERY = `{
-  homeEntryModels {
-    localizations(includeCurrent: true) {
-      title
-      updatedAt
-      locale
-      description {
-        html
+export const HOME_QUERY = gql`
+  query GetHomeData {
+    homeEntryModels {
+      localizations(includeCurrent: true) {
+        title
+        updatedAt
+        locale
+        description {
+          html
+        }
       }
     }
   }
-}`;
+`;
 
-export const CONTACT_QUERY = `{
+export const CONTACT_QUERY = gql`query GetContactData {
   contactMeModels {
     icon
     img {
@@ -43,7 +43,7 @@ export const CONTACT_QUERY = `{
   }
 }`;
 
-export const WORK_EXP_QUERY = `{
+export const WORK_EXP_QUERY = gql`query GetWorkExperience {
   wXpModels {
     localizations(includeCurrent: true) {
       locale

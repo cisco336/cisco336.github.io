@@ -1,27 +1,27 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Loading } from "../../components/loading/loading";
 import parser from "html-react-parser";
 import { languageContext } from "../../context/context";
-import { fetchData, HOME_QUERY } from "../../constants";
+import { HOME_QUERY } from "../../constants";
+import { useQuery } from "@apollo/client";
 import "./home.scss";
 
 export function Home() {
+    const { loading, error, data } = useQuery(HOME_QUERY);
     const {language} = useContext(languageContext);
-    const [data, setData] = useState(null);
 
-    useEffect(() => {
-        fetchData(HOME_QUERY)
-            .then(res => {
-                setData(res.homeEntryModels);
-            })
-    }, [language]);
+    useEffect(() => {}, [language]);
 
-    if (data == null) {
-        return <Loading />
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error !== undefined) {
+        return <div>Error...</div>
     }
 
     const localizedData = (lang) => {
-        return data.map((d) =>
+        return data.homeEntryModels.map((d) =>
             d.localizations.find((local) => local.locale == lang)
         );
     }

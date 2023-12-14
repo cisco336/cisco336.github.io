@@ -1,24 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import {Loading} from "../../components";
-import { CONTACT_QUERY, fetchData } from "../../constants";
+import { useQuery } from "@apollo/client";
+import { CONTACT_QUERY } from "../../constants";
 
 export const Contact = () => {
-    const [data, setData] = useState(null);
+    const { loading, error, data } = useQuery(CONTACT_QUERY);
 
-    useState(() => {
-        fetchData(CONTACT_QUERY)
-            .then(res => {
-                setData(res.contactMeModels);
-            })
-    }, []);
-
-    if (data == null) {
-        return <Loading />
+    if (loading) {
+        return <Loading />;
     }
+
+    if (error !== undefined) {
+        return <div>Error...</div>;
+    }
+
     return (
-    <div>
-        {data.map((d, index) => (
-            <a key={index} target="_blank" href={d.link}>{d.name}</a>
-        ))}
-    </div>);
+        <div>
+            {data.contactMeModels.map((d, index) => (
+                <a key={index} target="_blank" href={d.link}>
+                    {d.name}
+                </a>
+            ))}
+        </div>
+    );
 }
