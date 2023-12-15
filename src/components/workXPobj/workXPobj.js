@@ -26,9 +26,14 @@ export const WorkExperienceObj = ({
                 extraClass={`work-exp__header ${accordionState ? "open" : ""}`}
             >
                 <h3>{organiztion}</h3>
-                <img src={companyLogo.url} title={companyLogo.fileName} />
+                <div>
+                    <i className="work-exp__header--chevron icon icon-expand_more"></i>
+                    <img src={companyLogo.url} title={companyLogo.fileName} />
+                </div>
             </Button>
-            <div className={`work-exp__content ${accordionState ? "open" : ""}`}>
+            <div
+                className={`work-exp__content ${accordionState ? "open" : ""}`}
+            >
                 <div>
                     {parser(content.html)}
                     <small>
