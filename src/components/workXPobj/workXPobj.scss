@@ -3,10 +3,6 @@
 .work-exp {
     &__obj {
         @extend %smooth;
-        &:not(:last-of-type) {
-            margin-bottom: 1rem;
-        }
-
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -34,6 +30,8 @@
         align-items: center;
         
         & > * {
+            position: relative;
+            z-index: 1;
             padding: 0;
             margin: 0;
         }

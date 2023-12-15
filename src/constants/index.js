@@ -3,8 +3,6 @@ import {gql} from "@apollo/client";
 export const hygraphLink =
     "https://api-us-west-2.hygraph.com/v2/clharpja51mo001t7gejb0ssk/master";
 
-export const hygraphAssetsLink = "https://media.graphassets.com/";
-
 export const NAV_QUERY = gql`query GetNavItems {
     navModels {
     localizations(includeCurrent: true) {
@@ -67,3 +65,23 @@ export const WORK_EXP_QUERY = gql`query GetWorkExperience {
     }
   }
 }`;
+
+export const STATIC_CONTENT = gql`
+    query StaticText {
+        pageStaticTextModels {
+            slug
+            localizations(includeCurrent: true) {
+                locale
+                icon
+                title
+                content {
+                    html
+                }
+                img {
+                    fileName
+                    url
+                }
+            }
+        }
+    }
+`;

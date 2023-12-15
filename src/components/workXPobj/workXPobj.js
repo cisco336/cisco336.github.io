@@ -38,7 +38,7 @@ export const WorkExperienceObj = ({
                     {parser(content.html)}
                     <small>
                         <p>{updatedAt}</p>
-                        <i className="icon icon-calendar_today"></i>
+                        <i className="icon icon-event_available"></i>
                     </small>
                 </div>
             </div>
