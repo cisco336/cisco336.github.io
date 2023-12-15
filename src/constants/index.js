@@ -70,16 +70,16 @@ export const STATIC_CONTENT = gql`
     query StaticText {
         pageStaticTextModels {
             slug
+            img {
+                fileName
+                url
+            }
+            icon
             localizations(includeCurrent: true) {
                 locale
-                icon
                 title
                 content {
                     html
-                }
-                img {
-                    fileName
-                    url
                 }
             }
         }

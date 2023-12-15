@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Nav } from "../../components";
+import { Footer, Nav } from "../../components";
 import { Outlet } from "react-router-dom";
 import { languageContext, staticTextContext } from "../../context/context";
 import { ApolloProvider } from "@apollo/client";
@@ -26,9 +26,10 @@ export const App = () => {
             <staticTextContext.Provider value={staticText}>
                 <languageContext.Provider value={{ language, setLanguage }}>
                     <Nav />
-                    <div className="outlet">
-                        <Outlet />
-                    </div>
+                        <div className="outlet">
+                            <Outlet />
+                        </div>
+                    <Footer />
                 </languageContext.Provider>
             </staticTextContext.Provider>
         </ApolloProvider>

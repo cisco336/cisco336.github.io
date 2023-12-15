@@ -1,0 +1,19 @@
+@import "../../sass/index.scss";
+
+.footer {
+    background: $secondaryGradient;
+    padding: 1rem 2rem;
+    color: white;
+    font-size: 60%;
+    box-shadow: inset 0 13px 10px -12px rgba(#555, .8);
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+        height: 100px;
+        width: auto;
+        border-radius: 100%;
+    }
+}
