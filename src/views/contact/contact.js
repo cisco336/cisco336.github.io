@@ -19,7 +19,6 @@ export const Contact = () => {
 
     const renderData = (lang) => {
         return data.contactMeModels.map((d) => {
-            console.log(d)
             return {
                 ...d,
                 content: d.localizations.find((loc) => loc.locale == lang).content,

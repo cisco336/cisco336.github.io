@@ -10,7 +10,7 @@ export const App = () => {
 
     const [language, setLanguage] = useState("en");
     const [staticText, setStaticText] = useState(staticTextContext);
-    console.log(process.env);
+    // console.log(process.env);
 
     useEffect(() => {
         hygraphClient.query({query:STATIC_CONTENT})
