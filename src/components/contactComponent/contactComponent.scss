@@ -1,0 +1,28 @@
+@import "../../sass/partials/variables";
+
+.contact-me {
+    &__wrapper {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+    &__icon, &__text {
+        background: white;
+        border: 1px solid rgba(#555, .2);
+    }
+    &__icon {
+        font-size: 32px;
+        padding: 1rem;
+        border-radius: 100%;
+        z-index: 3;
+    }
+
+    &__text {
+        padding: .5rem 1rem;
+        border-radius: 0 30px 30px 0;
+        margin: 0 0 0 -10px;
+        z-index: 0;
+        background: $primaryGradient;
+        color: white;
+    }
+}

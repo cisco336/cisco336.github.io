@@ -29,19 +29,22 @@ export const HOME_QUERY = gql`
   }
 `;
 
-export const CONTACT_QUERY = gql`query GetContactData {
-  contactMeModels {
-    icon
-    img {
-      fileName
-      height
-      width
-      url
+export const CONTACT_QUERY = gql`
+    query GetContactData {
+        contactMeModels {
+            icon
+            img {
+                url
+            }
+            link
+            name
+            localizations(includeCurrent: true) {
+                content
+                locale
+            }
+        }
     }
-    link
-    name
-  }
-}`;
+`;
 
 export const WORK_EXP_QUERY = gql`query GetWorkExperience {
   wXpModels {
