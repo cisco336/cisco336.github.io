@@ -100,7 +100,10 @@ export const SKILLS_QUERY = gql`
                 familyIcon
                 proficiency
                 skillIcon
-                yearsOfExp
+                localizations(includeCurrent: true) {
+                    yearsOfExperience
+                    locale
+                }
             }
             localizations(includeCurrent: true) {
                 description

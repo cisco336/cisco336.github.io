@@ -27,7 +27,12 @@ export const Skills = (props) => {
         let skillData = data.skillModels.map((d) => {
             let element = {
                 name: d.name,
-                details: d.details,
+                details: {
+                    ...d.details,
+                    yearsOfExperience: d.details.localizations.find(
+                        (l) => l.locale == language
+                    ).yearsOfExperience,
+                },
                 content: d.localizations.find((loc) => loc.locale == lang),
             };
             return element;
