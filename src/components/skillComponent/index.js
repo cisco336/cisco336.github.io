@@ -1,6 +1,8 @@
 import React from "react";
+import { Accordion } from "../accordion";
 
 export const Skill = ({
+        children,
         name = "",
         content = { description: ""  },
         details = {
@@ -15,8 +17,11 @@ export const Skill = ({
     }) => {
 
     return (
-        <div>
-            {name}
-        </div>
+        <Accordion
+            title={name}
+            bigIcon={details.skillIcon}
+        >
+            {content.description}
+        </Accordion>
     );
 }

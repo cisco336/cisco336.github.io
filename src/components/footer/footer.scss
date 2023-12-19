@@ -7,9 +7,14 @@
     font-size: 60%;
     box-shadow: inset 0 13px 10px -12px rgba(#555, .8);
     display: grid;
-    grid-template-columns: repeat(2, 1fr) auto;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 1rem;
+
+    &__social,
+    &__img {
+        grid-row: 2;
+    }
 
     &__social {
         display: flex;
@@ -43,5 +48,29 @@
         height: 50px;
         width: auto;
         border-radius: 100%;
+        justify-self: flex-end;
+    }
+
+    p {
+        grid-row: 1;
+        grid-column: 1 / -1;
+    }
+
+    @include for-medium-screen {
+        grid-template-columns: repeat(2, 1fr) auto;
+
+        p {
+            grid-column: 1;
+        }
+
+        &__social {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        &__img {
+            grid-column: 3;
+            grid-row: 1;
+        }
     }
 }

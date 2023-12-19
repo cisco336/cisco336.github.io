@@ -4,11 +4,11 @@ import { SKILLS_QUERY } from "../../constants";
 import { languageContext, staticTextContext } from "../../context/context";
 import { useQuery } from "@apollo/client";
 import { Loading } from "../../components";
+import "./skills.scss";
 
 export const Skills = (props) => {
     const { loading, error, data } = useQuery(SKILLS_QUERY);
     const { language } = useContext(languageContext);
-    const pageStaticTextModels = useContext(staticTextContext);
 
     if (loading) {
         return <Loading />;
@@ -19,9 +19,10 @@ export const Skills = (props) => {
     }
 
     let categoryNames = [];
-    let skillsObject = [];
+    let familyNames = [];
+    let skillsObjectGroupByCat = [];
 
-    const renderData = (lang) => {
+    const groupByCategory = (lang) => {
 
         let skillData = data.skillModels.map((d) => {
             let element = {
@@ -32,7 +33,7 @@ export const Skills = (props) => {
             return element;
         });
 
-        let groupedSkills = skillData.reduce((acc, skill) => {
+        let catGroupedSkills = skillData.reduce((acc, skill) => {
             const category = skill.details.category;
 
             if (!acc[category]) {
@@ -42,24 +43,23 @@ export const Skills = (props) => {
             acc[category].push(skill);
 
             return acc;
-        }, []);
+        }, {});
 
 
-        categoryNames = Object.keys(groupedSkills);
+        categoryNames = Object.keys(catGroupedSkills);
 
-        return groupedSkills;
+        return catGroupedSkills;
     };
 
-    skillsObject = renderData(language);
+    skillsObjectGroupByCat = groupByCategory(language);
 
     return (
         <div className="skills__container">
             {categoryNames.map((name, index) => {
-                console.log(skillsObject)
                 return (
-                    <div key={index}>
-                        <h3>{name}</h3>
-                        {skillsObject[name].map((skill, idx) => {
+                    <div className="skills__category-family" key={index}>
+                        <h3 className="skills__category-family__title">{name}</h3>
+                        {skillsObjectGroupByCat[name].map((skill, idx) => {
                             return <Skill key={idx} {...skill} />;
                         })}
                     </div>

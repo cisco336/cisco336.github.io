@@ -1,0 +1,14 @@
+.skills {
+    &__container {
+        padding: 1rem 2rem;
+    }
+
+    &__category-family {
+        &:not(:last-of-type) {
+            margin-bottom: 2rem;
+        }
+
+        display: grid;
+        gap: 1rem;
+    }
+}
