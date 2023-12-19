@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: '#{$icomoon-font-family}';
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?1aisoy');
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?1aisoy#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?1aisoy') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?1aisoy') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?1aisoy##{$icomoon-font-family}') format('svg');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?rg5v7j');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?rg5v7j#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?rg5v7j') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?rg5v7j') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?rg5v7j##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -27,6 +27,56 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-developer_board {
+  &:before {
+    content: $icon-developer_board; 
+  }
+}
+.icon-view_compact {
+  &:before {
+    content: $icon-view_compact; 
+  }
+}
+.icon-dashboard {
+  &:before {
+    content: $icon-dashboard; 
+  }
+}
+.icon-dns {
+  &:before {
+    content: $icon-dns; 
+  }
+}
+.icon-view_quilt {
+  &:before {
+    content: $icon-view_quilt; 
+  }
+}
+.icon-biotech {
+  &:before {
+    content: $icon-biotech; 
+  }
+}
+.icon-construction {
+  &:before {
+    content: $icon-construction; 
+  }
+}
+.icon-engineering1 {
+  &:before {
+    content: $icon-engineering1; 
+  }
+}
+.icon-integration_instructions1 {
+  &:before {
+    content: $icon-integration_instructions1; 
+  }
+}
+.icon-pest_control1 {
+  &:before {
+    content: $icon-pest_control1; 
+  }
+}
 .icon-navigate_before {
   &:before {
     content: $icon-navigate_before; 

@@ -88,3 +88,24 @@ export const STATIC_CONTENT = gql`
         }
     }
 `;
+
+export const SKILLS_QUERY = gql`
+    query GetSkills {
+        skillModels {
+            name
+            details {
+                categoryIcon
+                category
+                family
+                familyIcon
+                proficiency
+                skillIcon
+                yearsOfExp
+            }
+            localizations(includeCurrent: true) {
+                description
+                locale
+            }
+        }
+    }
+`;

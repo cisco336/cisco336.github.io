@@ -6,3 +6,4 @@ export * from "./profilePicture/profilePicture";
 export * from "./switch/switch";
 export * from "./footer";
 export * from "./contactComponent";
+export * from "./skillComponent";
