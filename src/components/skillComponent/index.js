@@ -15,13 +15,13 @@ export const Skill = ({
         yearsOfExperience: "",
     },
 }) => {
-    console.table(details);
 
     return (
         <Accordion
             title={name}
             bigIcon={details.skillIcon}
             footer={details.yearsOfExperience}
+            footerIcon="cool2"
         >
             {content.description}
         </Accordion>

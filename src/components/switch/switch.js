@@ -12,7 +12,7 @@ export const Switch = (
         callBack = () => {},
     }
 ) => {
-    const [state, setState] = useState("");
+    const [state, setState] = useState(checked ? "checked" : "");
     const handleClick = () => {
         setState(state == "" ? "checked" : "");
         callBack();

@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import { Skill } from "../../components";
+import React, {useContext, useState} from "react";
+import { Skill, Switch } from "../../components";
 import { SKILLS_QUERY } from "../../constants";
 import { languageContext, staticTextContext } from "../../context/context";
 import { useQuery } from "@apollo/client";
@@ -7,6 +7,7 @@ import { Loading } from "../../components";
 import "./skills.scss";
 
 export const Skills = (props) => {
+    const [filterBy, setFilterBy] = useState("category")
     const { loading, error, data } = useQuery(SKILLS_QUERY);
     const { language } = useContext(languageContext);
 
@@ -21,8 +22,9 @@ export const Skills = (props) => {
     let categoryNames = [];
     let familyNames = [];
     let skillsObjectGroupByCat = [];
+    let skillsObjectGroupByFamily = [];
 
-    const groupByCategory = (lang) => {
+    const groupBy = (lang) => {
 
         let skillData = data.skillModels.map((d) => {
             let element = {
@@ -50,26 +52,51 @@ export const Skills = (props) => {
             return acc;
         }, {});
 
+        let familyGourpedSkills = skillData.reduce((acc, skill) => {
+            const family = skill.details.family;
+
+            if (!acc[family]) {
+                acc[family] = [];
+            }
+
+            acc[family].push(skill);
+
+            return acc;
+        }, {})
+
 
         categoryNames = Object.keys(catGroupedSkills);
+        familyNames = Object.keys(familyGourpedSkills);
 
-        return catGroupedSkills;
+        return {
+            cat: catGroupedSkills,
+            family: familyGourpedSkills,
+        };
     };
 
-    skillsObjectGroupByCat = groupByCategory(language);
+    skillsObjectGroupByCat = groupBy(language).cat;
+    skillsObjectGroupByFamily = groupBy(language).family;
 
     return (
         <div className="skills__container">
             {categoryNames.map((name, index) => {
-                return (
-                    <div className="skills__category-family" key={index}>
-                        <h3 className="skills__category-family__title">{name}</h3>
-                        {skillsObjectGroupByCat[name].map((skill, idx) => {
-                            return <Skill key={idx} {...skill} />;
-                        })}
-                    </div>
-                );
-            })}
+                      return (
+                          <div className="skills__category-family" key={index}>
+                              <h3 className="skills__category-family__title">
+                                  {name}{" "}
+                                  <i
+                                      className={`icon icon-${skillsObjectGroupByCat[name][0].details.categoryIcon}`}
+                                  ></i>
+                              </h3>
+                              {skillsObjectGroupByCat[name].map(
+                                  (skill, idx) => {
+                                      return <Skill key={idx} {...skill} />;
+                                  }
+                              )}
+                          </div>
+                      );
+                  })
+            }
         </div>
     );
 };

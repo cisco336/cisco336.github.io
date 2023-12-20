@@ -1,3 +1,5 @@
+@import "../../sass/partials/variables";
+
 .skills {
     &__container {
         padding: 1rem 2rem;
@@ -10,5 +12,18 @@
 
         display: grid;
         gap: 1rem;
+
+        &__title {
+            display: flex;
+            align-items: center;
+            background: $secondaryGradient;
+            background-clip: text;
+            -webkit-background-clip: text;
+            justify-content: space-between;
+
+            i {
+                font-size: 32px;
+            }
+        }
     }
 }
