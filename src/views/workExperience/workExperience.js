@@ -27,7 +27,11 @@ export const WorkExperience = (props) => {
     };
 
     const renderStaticHeader = (lang) => {
-        if (pageStaticTextModels == undefined) return;
+        if (
+            pageStaticTextModels === undefined ||
+            !Array.isArray(pageStaticTextModels)
+        )
+            return;
         let header = pageStaticTextModels?.find((model) => model.slug == "workexpstatictext")
             .localizations.find((loc) => loc.locale == lang);
         return parser(header.content.html);
