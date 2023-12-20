@@ -1,5 +1,5 @@
-@import "../../sass/partials/variables";
-@import "../../sass/partials/extends";
+@use "../../sass/partials/variables";
+@use "../../sass/partials/extends";
 
 .btn {
     @extend %smooth;
@@ -11,25 +11,25 @@
     position: relative;
 
     &-primary {
-        background: $primaryGradient;
+        background: variables.$primaryGradient;
         color: white;
 
         &:hover {
-            background: $primaryGradientHover;
+            background: variables.$primaryGradientHover;
         }
     }
     
     &-icon-primary {
         width: 48px;
         height: 48px;
-        color: $primaryBlue;
+        color: variables.$primaryBlue;
         font-size: 18px;
         background: none;
 
         &-outline {
-            background: $primaryGradient;
+            background: variables.$primaryGradient;
             z-index: 3;
-            color: $primaryBlue;
+            color: variables.$primaryBlue;
             display: flex;
             align-items: center;
             justify-content: center;

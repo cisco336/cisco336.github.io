@@ -1,4 +1,5 @@
-@import "../../sass/index.scss";
+@use "../../sass/partials/variables";
+@use "../../sass/partials/extends";
 
 .switch {
     &__wrapper {
@@ -29,7 +30,7 @@
         cursor: pointer;
 
         &.double, &.checked {
-            background: $primaryGradient;
+            background: variables.$primaryGradient;
         }
     }
 
@@ -52,7 +53,7 @@
             @extend %smooth;
             transform: translate(22px);
             background: white;
-            box-shadow: 0px 7px 8px -5px rgba($primaryBlue, .7), inset 0px 4px 15px -11px #999;
+            box-shadow: 0px 7px 8px -5px rgba(variables.$primaryBlue, .7), inset 0px 4px 15px -11px #999;
         }
     }
 }

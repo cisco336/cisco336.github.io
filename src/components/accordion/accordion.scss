@@ -1,6 +1,6 @@
 @use "../../sass/partials/animations";
-@import "../../sass/partials/variables";
-@import "../../sass/partials/extends";
+@use "../../sass/partials/variables";
+@use "../../sass/partials/extends";
 
 .accordion {
     &__obj {
@@ -19,7 +19,7 @@
         }
 
         &:hover {
-            box-shadow: $primaryShadow;
+            box-shadow: variables.$primaryShadow;
         }
     }
 
@@ -110,7 +110,7 @@
         }
 
         small {
-            background: $secondaryGradient;
+            background: variables.$secondaryGradient;
             padding: 1rem;
             margin: 1rem -1rem -1rem;
             color: white;

@@ -1,7 +1,9 @@
-@import "../../sass/index.scss";
+@use "../../sass/partials/variables";
+@use "../../sass/partials/extends";
+@use "../../sass/partials/mixins";
 
 .footer {
-    background: $secondaryGradient;
+    background: variables.$secondaryGradient;
     padding: 1rem 2rem;
     color: white;
     font-size: 60%;
@@ -56,7 +58,7 @@
         grid-column: 1 / -1;
     }
 
-    @include for-medium-screen {
+    @include mixins.for-medium-screen {
         grid-template-columns: repeat(2, 1fr) auto;
 
         p {

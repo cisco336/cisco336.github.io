@@ -1,4 +1,5 @@
-@import "../../sass/index.scss";
+@use "../../sass/partials/variables";
+@use "../../sass/partials/extends";
 
 .burger-menu {
     &__wrapper {
@@ -18,7 +19,7 @@
         display: grid;
         grid-template-columns: 1fr;
         background-color: white;
-        box-shadow: $primaryShadow;
+        box-shadow: variables.$primaryShadow;
 
         &.active {
             width: 100%;
@@ -29,7 +30,7 @@
             display: flex;
             text-decoration: none;
             z-index: 10;
-            box-shadow: inset 0 -8px 28px -21px rgba($primaryBlue, .3);
+            box-shadow: inset 0 -8px 28px -21px rgba(variables.$primaryBlue, .3);
         }
 
         .btn {
@@ -63,7 +64,7 @@
                 color: white;
                 background-clip: none;
                 -webkit-background-clip: none;
-                background: $tileGradientPrimary;
+                background: variables.$tileGradientPrimary;
 
                 i {
                     color: #eeeeee47;

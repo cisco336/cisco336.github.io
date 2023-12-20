@@ -1,35 +1,37 @@
+@use "./variables";
+
 @mixin for-xxsmall-screen {
-    @media screen and (max-width: $wXXSmall) { 
+    @media screen and (max-width: variables.$wXXSmall) { 
         @content; 
     }
 }
 
 @mixin for-xsmall-screen {
-    @media screen and (min-width: $wXSmall) {
+    @media screen and (min-width: variables.$wXSmall) {
         @content;
     }
 }
 
 @mixin for-small-screen {
-    @media screen and (min-width: $wSmall) {
+    @media screen and (min-width: variables.$wSmall) {
         @content;
     }
 }
 
 @mixin for-medium-screen {
-    @media screen and (min-width: $wMedium) {
+    @media screen and (min-width: variables.$wMedium) {
         @content;
     }
 }
 
 @mixin for-large-screen {
-    @media screen and (min-width: $wLarge) {
+    @media screen and (min-width: variables.$wLarge) {
         @content;
     }
 }
 
 @mixin for-xlarge-screen {
-    @media screen and (min-width: $wXLarge) {
+    @media screen and (min-width: variables.$wXLarge) {
         @content;
     }
 }
