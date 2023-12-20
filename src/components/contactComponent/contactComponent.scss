@@ -1,12 +1,24 @@
 @import "../../sass/partials/variables";
+@import "../../sass/partials/extends";
 
 .contact-me {
+    & * {
+        @extend %smooth;
+    }
     &__wrapper {
         text-decoration: none;
         display: flex;
         align-items: center;
+
+        &:hover {
+            .contact-me__icon, .contact-me__text {
+                @extend %smooth;
+                box-shadow: 0 22px 16px -11px rgba(#555, .6);
+            }
+        }
     }
     &__icon, &__text {
+        @extend %smooth;
         background: white;
         border: 1px solid rgba(#555, .2);
     }
