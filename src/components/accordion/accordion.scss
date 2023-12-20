@@ -1,4 +1,4 @@
-@import "../../sass/partials/animations";
+@use "../../sass/partials/animations";
 @import "../../sass/partials/variables";
 @import "../../sass/partials/extends";
 
@@ -43,14 +43,14 @@
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
 
-            & .work-exp__header--chevron {
+            & .accordion__header--chevron {
                 transform: rotate(180deg);
             }
 
             &:hover {
-                & .work-exp__header--chevron {
+                & .accordion__header--chevron {
                     transform: rotate(180deg);
-                    animation: bounce2 cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite 1s;
+                    animation: bounce cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite 1s;
                 }
             }
         }
@@ -82,7 +82,7 @@
         }
 
         &:hover {
-            & .work-exp__header--chevron {
+            & .accordion__header--chevron {
                 animation: bounce cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite 1s;
             }
         }
